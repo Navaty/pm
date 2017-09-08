@@ -1,0 +1,15 @@
+/upload/
+tmp/
+cache/
+cachedWS/
+*.sw[op]
+pma-bigpm2citrtnet.oldversion/
+feng-services.backup/
+files/
+autodetectexpiredtasks/
+debuglogs/
+cache/
+*.png
+*.jp?g
+*.gif
+*.log

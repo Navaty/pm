@@ -1,0 +1,47 @@
+<script>
+function show_task(id) {
+ $("#task_body_"+id).toggle('fast');
+}
+</script>
+<?
+include_once "statusage.php"; //by almaz - usage control
+include ("db.inc.php");
+
+include ("functions.php");
+$tasks = opengoo_list_objects_by_projectid(495,"task");
+for($i=1;$i<=20;$i++) {
+  $id = $tasks[$i][object_id];
+  $date = $tasks[$i][created_on];
+  $task_data = opengoo_get_object_info_by_objectid($id,"task");
+  $title = $task_data["info"]["title"];
+  $task_body = $task_data["info"]["text"];
+  $properties = $task_data["properties"];
+  $prop = "";
+  if(is_array($properties)) {
+  foreach($properties as $v) {
+  if($v[value]) {
+  $prop .= "$v[name] : $v[value] <br/> ";
+}
+  }
+  }
+  echo "<li 
+       style='border: dotted 1px green; 
+       padding: 10px;
+       margin-top:10px;
+       margin-left:5px;
+       margin-right:5px;
+       '
+       class='ui-state-highlight new_task'>
+<div onclick='show_task($id);'>№ ".$id." ($date) <b>$title</b></div>
+<div id='task_body_$id' style='display:none;padding-left:10px;'>
+<br/>
+$task_body
+<div style='padding:10px;'>
+$prop
+</div>
+</div>
+
+ ".print_r($DDtask_data,1)."
+       </li>";
+}
+?>

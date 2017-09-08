@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Обратная связь</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script language="JavaScript" src="/javascript/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/jquery/jquery.tools.min.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/keyboard.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/jquery/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/jquery/jquery.ui.datepicker-ru.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/jquery/jquery.tmpl.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/lib/wait-window.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/lib/jquery.placeholder-label.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/jquery.tablescroll.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/jquery/jquery.visual.steps.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/jquery/jquery.collapsible.blocks.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/layout.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/orphus.js" type="text/javascript"></script>
+    <script language="JavaScript" src="/javascript/cardreader.js" type="text/javascript"></script>
+    <link href="/design/css/master.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/design/css/master_2.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/design/css/map.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/design/css/keyboard.css" media="all" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="main-container">
+      <div id="top-panel">
+	<div class="handler">
+	  <!--<img src="/design/images/top-panel/top-panel-tmp.png" alt="">-->
+          <form class="sform" action="http://uslugi2.tatar.ru/search"><div class="search">
+              <label for="search-input-field">Искать на сайте:</label>
+              <div class="input-field"><input id="search-input-field" type="text" name="search_text" value="" /></div>
+              <div class="search-btn"><input type="submit" value="" /></div>
+          </div></form>
+          <div class="feedback"><a href="/feedback">Напишите нам</a></div>
+	</div>
+      </div>
+      <div id="wrapper">
+	<div id="header">
+	  <a href="/" class="logo">Портал государственных и муниципальных услуг Республики Татарстан</a>
+          
+	  
+	</div>
+	<div id="page" class="clearfix">
+	  <div id="mainMenu">
+	    <ul>
+	      <li class='first'><label class=''><a href='/'><span><span>Главная</span></span></a></label></li>
+	      <li class=''><label class=''><a href='/service'><span><span>Все услуги</span></span></a></label></li>
+	      <li class='last'><label class='selected'><a href='/feedback'><span><span>Задать вопрос</span></span></a></label></li>
+	    </ul>
+	  </div>
+	  <div id="ie6_deprecated" style="display:none;">
+	    Внимание! Вы используете устаревшую версию Internet Explorer (6.0) <br/>
+	    <small>
+	      Чтобы использовать все возможности сайта, загрузите и установите один из этих браузеров:
+	    </small>
+	    <div class="browsers">
+	      <a class="msie" href="http://windows.microsoft.com/ru-RU/internet-explorer/products/ie/home">Internet Explorer</a>
+	      <a class="firefox" href="http://www.mozilla.com/ru/firefox/">Mozilla Firefox</a>
+	      <a class="chrome" href="http://www.google.com/chrome/">Google Chrome</a>
+	      <a class="opera" href="http://www.opera.com/">Opera</a>
+	    </div>
+	  </div>
+	  <script type="text/javascript">
+	    /*var _ua = navigator.userAgent.toLowerCase();
+	    var browser = {
+	    version: (_ua.match( /.+(?:me|ox|on|rv|it|ra|ie)[\/: ]([\d.]+)/ ) || [0,'0'])[1],
+	    opera: /opera/i.test(_ua),
+	    msie: (/msie/i.test(_ua) && !/opera/i.test(_ua)),
+	    msie6: (/msie 6/i.test(_ua) && !/opera/i.test(_ua)),
+	    msie7: (/msie 7/i.test(_ua) && !/opera/i.test(_ua)),
+	    msie8: (/msie 8/i.test(_ua) && !/opera/i.test(_ua)),
+	    msie9: (/msie 9/i.test(_ua) && !/opera/i.test(_ua)),
+	    mozilla: /firefox/i.test(_ua),
+	    chrome: /chrome/i.test(_ua),
+    safari: (!(/chrome/i.test(_ua)) && /webkit|safari|khtml/i.test(_ua)),
+    iphone: /iphone/i.test(_ua),
+    ipod: /ipod/i.test(_ua),
+    iphone4: /iphone.*OS 4/i.test(_ua),
+    ipod4: /ipod.*OS 4/i.test(_ua),
+    ipad: /ipad/i.test(_ua),
+    safari_mobile: /iphone|ipod|ipad/i.test(_ua),
+    opera_mobile: /opera mini|opera mobi/i.test(_ua),
+    mobile: /iphone|ipod|ipad|opera mini|opera mobi/i.test(_ua)
+  };*/
+  if ($.browser.msie && $.browser.version == 6)
+  {
+  $('#ie6_deprecated').show();
+  }
+  else
+  {
+  $('#ie6_deprecated').remove();
+  }
+</script>
+<div class="breadcrumbs">
+  <a href="/" title="Главная">Главная</a> / Обратная связь</div>
+<script>
+
+$(function() {
+
+                $( ".level0" ).accordion({ collapsible: true, active: false, autoHeight: false });
+
+                $( ".level1" ).accordion({ collapsible: true, active: false, autoHeight: false });
+
+                $( ".level2" ).accordion({ collapsible: true, active: false, autoHeight: false });
+
+                $( ".level3" ).accordion({ collapsible: true, active: false, autoHeight: false });
+
+                $( ".level4" ).accordion({ collapsible: true, active: false, autoHeight: false });
+
+});
+
+</script>
+
+
+
+
+
+<h1>Заголовок</h1>
+
+<table width="960" cellpadding="0" cellspacing="0" border="0">
+
+    <tr>
+
+      <td id="feedback" style="width: 610px; padding-right:20px" valign="top">
+
+	<div class="as_table_header">
+
+          Муниципальный район/Городской округ<b>Кол-во обращений</b>
+
+	  </div>
+
+	<div class="level0" id="visits">
+
+	  <h3><a href="#" onfocus="this.blur()">Казань</a><b>10500</b></h3>
+
+	  <div>
+
+	    <div class="level1">
+
+	      <h3><a href="#">Приволжский район</a><b>500</b></h3>
+
+	      <div>
+
+		<div class="level2">
+
+		  <h3><a href="#">ул. Амирхана</a><b>300</b></h3>
+
+		  <div>
+
+		    <div class="level3">
+
+		      <h3><a href="#">Дом № 19</a><b>200</b></h3>
+
+		      <div>
+
+			<div class="level4">
+
+			  <h3><a href="#">1 обращение</a></h3>
+
+			  <div>
+
+			    Премьер-министр Владимир Путин впервые вступился за бывшего министра финансов Алексея Кудрина. По словам главы правительства, Кудрин продолжит "работать в команде". Алексей Кудрин был отправлен в отставку после заявлений о том, что он не согласен с некоторыми пунктами бюджетной политики Дмитрия Медведева.
+
+			    </div>
+
+			  <h3><a href="#">2 обращение</a></h3>
+
+			  <div>
+
+			    Премьер-министр Владимир Путин впервые вступился за бывшего министра финансов Алексея Кудрина. По словам главы правительства, Кудрин продолжит "работать в команде". Алексей Кудрин был отправлен в отставку после заявлений о том, что он не согласен с некоторыми пунктами бюджетной политики Дмитрия Медведева.
+
+			    </div>
+
+			  <h3><a href="#">3 обращение</a></h3>
+
+			  <div>
+
+			    Премьер-министр Владимир Путин впервые вступился за бывшего министра финансов Алексея Кудрина. По словам главы правительства, Кудрин продолжит "работать в команде". Алексей Кудрин был отправлен в отставку после заявлений о том, что он не согласен с некоторыми пунктами бюджетной политики Дмитрия Медведева.
+
+			    </div>
+
+			  </div>
+
+			</div>
+
+		      <h3><a href="#">Дом № 29</a><b>100</b></h3>
+
+		      <div><p>Текст для дома №29</p></div>
+
+
+
+		      </div>
+
+		    </div>
+
+
+
+		  <h3><a href="#">ул. Ямашева</a><b>200</b></h3>
+
+		  <div>Список домов</div>
+
+		  </div>
+
+		</div>
+
+
+
+	      <h3><a href="#">Новосавиновский район</a><b>10000</b></h3>
+
+	      <div>Номера домов...</div>
+
+	      </div>
+
+	    </div>
+
+	  <h3><a href="#">Набережные Челны</a></h3>
+
+	  <div>Second content</div>
+
+	  </div>
+
+
+
+
+
+	<div class="simple-buttons">
+	  <p onclick="javascript: window.location.href = '/cei/feedback';"><ins><input type="button" value="">Кнопка</ins></p>
+	  </div>
+
+
+
+
+      </td>
+
+      <td id="faq" style="background-color: #F8F8F8;width: 330px;text-align: left;">
+
+	Правая колонка
+
+      </td>
+
+
+
+    </tr>
+
+
+
+</table></div>
+	    </div>
+	  <div id="footer">
+	    <div class="handler">
+	      <div class="found-error"><img src="/design/images/find-error.png" alt="Обнаружили ошибку?" /><br />
+                                                    <!--Rating@Mail.ru COUNTER--><script language="JavaScript" type="text/javascript"><!--
+                            d=document;var a='';a+=';r='+escape(d.referrer)
+                            js=10//--></script><script language="JavaScript1.1" type="text/javascript"><!--
+                            a+=';j='+navigator.javaEnabled()
+                            js=11//--></script><script language="JavaScript1.2" type="text/javascript"><!--
+                            s=screen;a+=';s='+s.width+'*'+s.height
+                            a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+                            js=12//--></script><script language="JavaScript1.3" type="text/javascript"><!--
+                            js=13//--></script><script language="JavaScript" type="text/javascript"><!--
+                            d.write('<a href="http://top.mail.ru/jump?from=1139026"'+
+                            ' target="_top" style="position: relative"><img src="http://d1.c6.b1.a1.top.mail.ru/counter'+
+                            '?id=1139026;t=211;js='+js+a+';rand='+Math.random()+
+                            '" alt="Рейтинг@Mail.ru"'+' border="0" height="31" width="88"/><\/a>')
+                            if(11<js)d.write('<'+'!-- ')//--></script><noscript><a
+                            target="_top" href="http://top.mail.ru/jump?from=1139026"><img
+                            src="http://d1.c6.b1.a1.top.mail.ru/counter?js=na;id=1139026;t=211"
+                            border="0" height="31" width="88"
+                            alt="Рейтинг@Mail.ru"/></a></noscript><script language="JavaScript" type="text/javascript"><!--
+                            if(11<js)d.write('--'+'>')//--></script><!--/COUNTER-->
+                                            </div>
+                    <p>
+		                          &copy; 2011 Министерство информатизации и связи Республики Татарстан. Условия использования информации.
+					  Справочно-информационный портал государственных услуг работает в тестовом режиме. Информация на портале размещена федеральными и
+					  региональными органами власти Российской Федерации. Если вы обнаружили неточности в размещенной информации, просьба оперативно
+					  сообщить об этом оператору Портала.
+					  </p>
+		    <p>
+		      Информация об ошибках будет оперативно передана в ведомство, разместившее информацию.
+		      Обращаем ваше внимание на то, что оператор Портала не несет ответственности за некорректную информацию, размещенную на портале.
+		      </p>
+		    </div>
+	  </div>
+	  </div>
+
+	
+	<!-- error tracker -->
+	<script type="text/javascript">
+	  $(function() {
+
+	  /* error tracker */
+	  var errors = $('.error_explanation'), start_inc = 1000, step_inc = 500;
+
+	  if (errors && $('.uform').keypress(function()
+	  {
+	  $(errors).each(function(er){
+	  if (!$(this).parent().hasClass('error_visible')){
+	  $(this).delay(start_inc).fadeOut('fast');
+	  start_inc += step_inc;
+	  }
+	  });
+	  }));
+
+	  /* search tracker */
+	  $('.sform').submit(function() {
+	  if($(this).find('input[type="text"]').val().length < 3) {
+							       alert('Поисковый запрос должен содержать не менее трех символов!');
+							       return false;
+							       }
+							       });
+							       });
+							       </script>
+
+	<!-- google analytics -->
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-10722678-13']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	  </script> 
+	</body>
+</html>

@@ -1,0 +1,147 @@
+body { 
+	font-size: 62.5%; 
+}
+
+label, input { 
+	display:block; 
+}
+
+input.text { 
+	margin-bottom:12px; 
+	width:95%; 
+	padding: .4em; 
+}
+
+fieldset { 
+	padding:0; 
+	border:0; 
+	margin-top:25px; 
+}
+
+h1 { 
+	font-size: 1.2em; 
+	margin: .6em 0; 
+}
+
+div#sourfiers-contain { 
+	width: 350px; 
+	margin: 20px 0; 
+}
+
+div#sourfiers-contain table { 
+	margin: 1em 0; 
+	border-collapse: collapse; 
+	width: 1000px; 
+}
+
+div#sourfiers-contain table td, div#sourfiers-contain table th { 
+	border: 1px solid #eee; 
+	padding: .6em 10px; 
+	text-align: left; 
+}
+
+.ui-dialog .ui-state-error { 
+	padding: .3em; 
+}
+
+.validateTips { 
+	border: 1px solid transparent; 
+	padding: 0.3em; 
+}
+
+div#source-contain, div#classifier-contain { 
+	width: 350px; 
+	margin: 20px 0; 
+}
+
+div#source-contain table, div#classifier-contain table { 
+	margin: 1em 0; 
+	border-collapse: collapse; 
+	width: 1000px; 
+}
+
+div#source-contain table td, div#source-contain table th, div#classifier-contain table td, div#classifier-contain table th { 
+	border: 1px solid #eee; 
+	padding: .6em 10px; 
+	text-align: left; 
+}
+
+div#source-contain, div#classifier-contain { 
+	width: 350px; 
+	margin: 20px 0; 
+}
+
+div#source-contain table, div#classifier-contain table { 
+	margin: 1em 0; 
+	border-collapse: collapse; 
+	width: 1000px; 
+}
+
+div#source-contain table td, div#source-contain table th, div#classifier-contain table td, div#classifier-contain table th { 
+	border: 1px solid #eee; 
+	padding: .6em 10px; 
+	text-align: left; 
+}
+
+.true-widget {
+	background: #98FB98;
+	
+}
+
+.false-widget {
+        background: #F5DEB3;
+}
+
+.edit_sourfier {
+	width: 20px;
+	cursor: pointer;
+}
+
+.lamp_active, .lamp_active_source, .lamp_active_classifier {
+        width: 14px;
+	text-align: center;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+}
+
+.delete_sourfier, .delete_source, .delete_classifier {
+        width: 18px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	height: 20px;
+        cursor: pointer;
+}
+#addit_edit_active {
+	display: inline-flex;
+}
+#ajax_loader {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	z-index: 10;
+}
+
+#ajax_loader img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+}
+
+#ajax_loader .transparency {
+  opacity:0.5;
+  filter:alpha(opacity=50);
+  -moz-opacity:0.5;
+  background-color:#ffffff;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  top:0px;
+  left:0px;
+z-index:-1;
+} 

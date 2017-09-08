@@ -1,0 +1,625 @@
+<?php
+//include ("../db.inc.php");
+//include ("../functions.php");
+include ("../connect_db_func.php");
+$query_source = "SELECT * FROM report_incidents_sources WHERE active = 1";
+$res_source = ssql($query_source);
+if(is_array($res_source)) {
+	foreach($res_source as $val) {
+		$sources .= '<option value="'.$val['id'].'">'.$val['name'].'</option>';
+	}
+}
+
+$query_classifier = "SELECT * FROM report_incidents_classifier WHERE active = 1";
+$res_classifier = ssql($query_classifier);
+if(is_array($res_classifier)) {
+        foreach($res_classifier as $val) {
+                $classifier .= '<option value="'.$val['id'].'">'.$val['name'].'</option>';
+        }
+}
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Отчет по задачам ГМУ</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="css.css">
+<!--  <link href='http://fonts.googleapis.com/css?family=Cuprum&amp;subset=latin' rel='stylesheet' type='text/css'>-->
+  <link rel="stylesheet" type="text/css" href="jquery_confirm/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="jquery_confirm/jquery.confirm/jquery.confirm.css" />
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script src="js.js"></script>
+  <script src="jquery_confirm/jquery.confirm/jquery.confirm.js"></script>
+  <script src="jquery_confirm/js/script.js"></script>
+  <script>
+  $(function() {
+	show_all_criteria();
+	show_all_sources();
+	show_all_classifiers();
+    	$( "#tabs" ).tabs({
+      		beforeLoad: function( event, ui ) {
+        	ui.jqXHR.error(function() {
+          	ui.panel.html(
+            		"Couldn't load this tab. We'll try to fix this as soon as possible. " +
+            		"If this wouldn't be a demo." );
+        	});
+      	}
+	});
+
+	$( "#from" ).datepicker({
+      	      defaultDate: "+1w",
+	      changeMonth: true,
+	      numberOfMonths: 3,
+	      dateFormat: "dd.mm.yy",
+	      onClose: function( selectedDate ) {
+	      	$( "#to" ).datepicker( "option", "minDate", selectedDate );
+      		}
+	});
+	    $( "#to" ).datepicker({
+	      defaultDate: "+1w",
+	      changeMonth: true,
+	      numberOfMonths: 3,
+	      dateFormat: "dd.mm.yy",
+	      onClose: function( selectedDate ) {
+	        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+	      }
+	    });
+
+	$( "#from1" ).datepicker({
+              defaultDate: "+1w",
+              changeMonth: true,
+              numberOfMonths: 3,
+              dateFormat: "dd.mm.yy",
+              onClose: function( selectedDate ) {
+                $( "#to1" ).datepicker( "option", "minDate", selectedDate );
+                }
+        });
+            $( "#to1" ).datepicker({
+              defaultDate: "+1w",
+              changeMonth: true,
+              numberOfMonths: 3,
+              dateFormat: "dd.mm.yy",
+              onClose: function( selectedDate ) {
+                $( "#from1" ).datepicker( "option", "maxDate", selectedDate );
+              }
+            });
+
+	$('#sourfiers').on('click', ".delete_sourfier", function(){ delete_sourfier($(this).attr('rec_id'));});
+	$('#sourfiers').on('click', ".lamp_active", function(){ active_sourfier($(this).attr('rec_id'), $(this).attr('active'));});
+	$('#sourfiers').on('click', ".edit_sourfier", function(){ edit_sourfier($(this).attr('rec_id'));});
+	$('#sources').on('click', ".lamp_active_source", function(){ active_source($(this).attr('rec_id'), $(this).attr('active'));});
+	$('#sources').on('click', ".delete_source", function(){ delete_source($(this).attr('rec_id'));});
+	$('#classifiers').on('click', ".lamp_active_classifier", function(){ active_classifier($(this).attr('rec_id'), $(this).attr('active'));});
+        $('#classifiers').on('click', ".delete_classifier", function(){ delete_classifier($(this).attr('rec_id'));});
+	$('#get_report').on('click', ".get_report", function(){
+		$('.report_link').remove();
+		console.log('Я работаю');
+		$("#ajax_loader").css("display", "block");
+		$.ajax({
+			type: "POST",
+			url: "auto_reports_to_base.php",
+			data: {"rangedate": 'true', "starttime": $('#from').val(), "endtime": $('#to').val()},
+			success: function(msg){
+				console.log('Статистика сформирована...');
+				$.ajax({
+
+					type: "POST",
+					url: "excel_report.php",
+					data: {"rangedate": 'true'},
+					success: function(msg1){
+						console.log(msg1);
+						data = $.parseJSON(msg1);
+						$("#ajax_loader").css("display", "none");
+						$("#get_report").append(data);
+//						alert(data);
+					},
+					error: function(msg_err){
+						$("#ajax_loader").css("display", "none");
+                         	       		alert('Ошибка экспорта отчета. Обратитесь к разработчику системы.');
+						console.log(msg_err);
+		                        }
+				});
+			},
+			error: function(msg_er){
+				$("#ajax_loader").css("display", "none");
+   			 	alert('Ошибка подсчета статистики. Обратитесь к разработчику системы.');
+  			}
+		});
+//		console.log('Сейчас будем ждать 5 секунд');
+//		pause(5000);
+/*		$.ajax({
+                        type: "POST",
+                        url: "excel_report.php",
+                        data: {"rangedate": 'true'},
+                        success: function(msg){
+                                alert('true');
+                        },
+                        error: function(){
+                                alert('error!');
+                        }
+                });*/
+//		console.log('Мы прождали 5 секунд');
+//		document.location.href = 'http://pm.citrt.net/plugins/report_incidents/excel_report.php?rangedate=true';
+	});
+	$('#get_report1').on('click', ".get_report1", function(){
+		$('.report_link').remove();
+                console.log('Я работаю');
+                $("#ajax_loader").css("display", "block");
+		$.ajax({
+                        type: "POST",
+                        url: "report_excel_el_teminals.php",
+                        data: {"starttime": $('#from1').val(), "endtime": $('#to1').val(), "rangedate": true},
+                        success: function(msg){
+                                console.log('Статистика сформирована...');
+                                console.log(msg);
+				data = $.parseJSON(msg);
+                                $("#ajax_loader").css("display", "none");
+                                $("#get_report1").append(data);
+                      },
+                        error: function(msg_err){
+				$("#ajax_loader").css("display", "none");
+                              alert('Ошибка экспорта отчета. Обратитесь к разработчику системы.');
+                        }
+                });
+      	});
+
+	var source = $('#source'), classifier = $('#classifier'), active = $('#active'), allFields = $( [] ).add(source).add(classifier).add(active), tips = $( ".validateTips" ); 
+
+    	function updateTips( t ) {
+	      	tips
+ 			.text( t )
+       			.addClass( "ui-state-highlight" );
+	      	setTimeout(function() {
+        		tips.removeClass( "ui-state-highlight", 1500 );
+	      	}, 500 );
+    	}
+
+    function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        updateTips( "Длина поля " + n + " должен быть между " +
+          min + " и " + max + "." );
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    function checkRegexp( o, regexp, n ) {
+      if ( !( regexp.test( o.val() ) ) ) {
+        o.addClass( "ui-state-error" );
+        updateTips( n );
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+	function checkSelectVal(o, n) {
+		if(isNaN(o.val())) {
+			o.addClass( "ui-state-error" );
+			updateTips( "Значение " + n + " неверно." );
+			return false;
+		}
+		else return true;
+	}
+
+    	$( "#dialog-form" ).dialog({
+      		autoOpen: false,
+      		height: 300,
+      		width: 450,
+     		modal: true,
+      		buttons: {
+        		"Добавить связку": function() {
+          		var bValid = true;
+          		allFields.removeClass( "ui-state-error" );
+			bValid = bValid && checkSelectVal(source, "источник");
+			bValid = bValid && checkSelectVal(classifier, "классификатор");
+
+          		if ( bValid ) {
+				param = "write_to_base";
+				flagquery = true;
+				$.ajax({
+					type: "POST",
+					url: "templates/model.php",
+					data: {"command": param, "source": source.val(), "classifier": classifier.val(), "active": active.is(':checked')},
+					success: function(msg){
+						data = $.parseJSON(msg);
+						switch(data) {
+							case false:
+								alert('Ошибка при записи в БД! Попробуйте внести изменения позже.');
+							break;
+							case "record_exist":
+								alert('Данная комбинация присутствует в отчете!');
+							break;
+							default:
+//								alert('Запись в БД прошла успешно');
+							break;
+						}
+					}
+				});
+      		    		$( this ).dialog( "close" );
+				show_all_criteria();
+        	  	}
+        	},
+        	"Отменить": function() {
+          		$( this ).dialog( "close" );
+        	}
+      	},
+      	close: function() {
+        	allFields.val( "" ).removeClass( "ui-state-error" );
+      	}
+    	});
+
+	    $( "#create-connective" )
+      		.button()
+      		.click(function() {
+        		$( "#dialog-form" ).dialog( "open" );
+      		});
+
+	var newsource = $('#newsource'), newsource_active = $('#newsource_active'), sourceallFields = $( [] ).add(newsource).add(newsource_active), source_tips = $( ".validateTips" );
+
+        $( "#dialog-form-source" ).dialog({
+                autoOpen: false,
+                height: 260,
+                width: 450,
+                modal: true,
+                buttons: {
+                        "Добавить источник": function() {
+                        var bValid = true;
+                        sourceallFields.removeClass( "ui-state-error" );
+                        bValid = bValid && checkLength(newsource, "источник", 3, 50);
+//			bValid = bValid && checkRegexp( newsource, /^[a-z]([0-9a-z_])+$/i, "Наименование источника должен состоять из букв, цифр, знака подчеркивания, и начинаться с буквы." );
+                        if ( bValid ) {
+                                param = "write_to_base_source";
+                                flagquery = true;
+                                $.ajax({
+                                        type: "POST",
+                                        url: "templates/model.php",
+                                        data: {"command": param, "source": newsource.val(), "active": newsource_active.is(':checked')},
+                                        success: function(msg){
+                                                data = $.parseJSON(msg);
+//						console.log(data);
+                                                switch(data) {
+                                                        case false:
+                                                                alert('Ошибка при записи в БД! Попробуйте внести изменения позже.');
+                                                        break;
+                                                        case "record_exist":
+                                                                alert('Данный источник присутствует в списке!');
+                                                        break;
+                                                        default:
+//                                                                alert('Запись в БД прошла успешно');
+                                                        break;
+                                                }
+                                        }
+                                });
+                                $( this ).dialog( "close" );
+				pause(100);
+				show_all_sources();
+				change_source_list();
+                        }
+                },
+                "Отменить": function() {
+                        $( this ).dialog( "close" );
+                }
+        },
+        close: function() {
+                allFields.val( "" ).removeClass( "ui-state-error" );
+        }
+        });
+
+            $( "#create-source" )
+                .button()
+                .click(function() {
+                        $( "#dialog-form-source" ).dialog( "open" );
+                });
+
+	var edit_source = $('#edit_source'), edit_classifier = $('#edit_classifier'), edit_active = $('#edit_active'), edit_allFields = $( [] ).add(edit_source).add(edit_classifier).add(edit_active), tips = $( ".validateTips" );
+
+        $( "#dialog-form-edit" ).dialog({
+                autoOpen: false,
+                height: 300,
+                width: 450,
+                modal: true,
+                buttons: {
+                        "Применить изменения": function() {
+                        var bValid = true;
+                        edit_allFields.removeClass( "ui-state-error" );
+                        bValid = bValid && checkSelectVal(edit_source, "источник");
+                        bValid = bValid && checkSelectVal(edit_classifier, "классификатор");
+
+                        if ( bValid ) {
+/*                                param = "write_to_base";
+                                flagquery = true;
+                                $.ajax({
+                                        type: "POST",
+                                        url: "templates/model.php",
+                                        data: {"command": param, "source": source.val(), "classifier": classifier.val(), "active": active.is(':checked')},
+                                        success: function(msg){
+                                                data = $.parseJSON(msg);
+                                                switch(data) {
+                                                        case false:
+                                                                alert('Ошибка при записи в БД! Попробуйте внести изменения позже.');
+                                                        break;
+                                                        case "record_exist":
+                                                                alert('Данная комбинация присутствует в отчете!');
+                                                        break;
+                                                        default:
+//                                                              alert('Запись в БД прошла успешно');
+                                                        break;
+                                                }
+                                        }
+                                });*/
+                                $( this ).dialog( "close" );
+                                show_all_criteria();
+                        }
+                },
+                "Отменить": function() {
+                        $( this ).dialog( "close" );
+                }
+        },
+        close: function() {
+                edit_allFields.val( "" ).removeClass( "ui-state-error" );
+        }
+        });
+
+	var newclassifier = $('#newclassifier'), newclassifier_source = $('#newclassifier_source'), newclassifier_active = $('#newclassifier_active'), classifierallFields = $( [] ).add(newclassifier).add(newclassifier_source).add(newclassifier_active), source_tips = $( ".validateTips" );
+
+        $( "#dialog-form-classifier" ).dialog({
+                autoOpen: false,
+                height: 300,
+                width: 400,
+                modal: true,
+                buttons: {
+                        "Добавить классификатор": function() {
+                        var bValid = true;
+                        sourceallFields.removeClass( "ui-state-error" );
+                        bValid = bValid && checkLength(newclassifier, "классификатор", 3, 255);
+			bValid = bValid && checkSelectVal(newclassifier_source, "источник");
+                        if ( bValid ) {
+                                param = "write_to_base_classifier";
+                                flagquery = true;
+                                $.ajax({
+                                        type: "POST",
+                                        url: "templates/model.php",
+                                        data: {"command": param, "classifier": newclassifier.val(), "source": newclassifier_source.val(), "active": newsource_active.is(':checked')},
+                                        success: function(msg){
+                                                data = $.parseJSON(msg);
+//                                              console.log(data);
+                                                switch(data) {
+                                                        case false:
+                                                                alert('Ошибка при записи в БД! Попробуйте внести изменения позже.');
+                                                        break;
+                                                        case "record_exist":
+                                                                alert('Данный источник присутствует в списке!');
+                                                        break;
+                                                        default:
+//                                                                alert('Запись в БД прошла успешно');
+                                                        break;
+                                                }
+                                        }
+                                });
+                                $( this ).dialog( "close" );
+                                pause(100);
+				show_all_classifiers()
+                        }
+                },
+                "Отменить": function() {
+                        $( this ).dialog( "close" );
+                }
+        },
+        close: function() {
+                allFields.val( "" ).removeClass( "ui-state-error" );
+        }
+        });
+
+            $( "#create-classifier" )
+                .button()
+                .click(function() {
+                        $( "#dialog-form-classifier" ).dialog( "open" );
+                });
+
+  });
+
+  </script>
+</head>
+<body>
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">О системе</a></li>
+    <li><a href="#tabs-source-classifier">Источник-классификатор (настройки для автоматических отчетов)</a></li>
+    <li><a href="#tabs-manual-setting">Отчет в ручном режиме</a></li>
+    <li><a href="#tabs-sources">Источники</a></li>
+    <li><a href="#tabs-classifiers">Классификаторы</a></li>
+    <li><a href="#tabs-el-term-sisadmin">Отчет терминалы эл. очереди - обращения админов</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p>Сервис предназначен для настройки формирования отчета по задачам, где исходными данными являются дата начала/конца, источник и классификатор.</p>
+  </div>
+  <div id="tabs-source-classifier">
+    <div id="dialog-form" title="Добавить новую связку">
+      <p class="validateTips">Все поля обязательны для заполнения.</p>
+      <form id="add_form">
+        <fieldset>
+          <label for="source">Источник</label>
+          <select style="width: 400px" name="source" id="source" class="ui-widget-content ui-corner-all" onchange="change_classifier(this.value);">
+	    <option>Нажать для выбора</option>
+	    <?=$sources;?>
+          </select>
+	  <br /><br />
+          <label for="classifier">Классификатор</label>
+          <select style="width: 400px" name="classifier" id="classifier" class="ui-widget-content ui-corner-all">
+	    <option>Нажать для выбора</option>
+            <?=$classifier;?>
+          </select>
+	  <br /><br />
+	  <div style="display: inline-flex;">
+		<input type="checkbox" checked name="active" id="active" class="ui-widget-content ui-corner-all">
+	        <label for="active">Связка активна</label>
+	  </div>
+        </fieldset>
+      </form>
+    </div>
+
+
+    <div id="dialog-form-edit" title="Редактировать связку">
+      <p class="validateTips">Все поля обязательны для заполнения.</p>
+      <form id="edit_form">
+        <fieldset>
+          <label for="edit_source">Источник</label>
+          <select style="width: 400px" name="edit_source" id="edit_source" class="ui-widget-content ui-corner-all" onchange="change_classifier(this.value);">
+            <option>Нажать для выбора</option>
+            <?=$sources;?>
+          </select>
+	  <br /><br />
+          <label for="edit_classifier">Классификатор</label>
+          <select style="width: 400px" name="edit_classifier" id="edit_classifier" class="ui-widget-content ui-corner-all">
+            <option>Нажать для выбора</option>
+            <?=$classifier;?>
+          </select>
+	  <br /><br />
+	  <div id="addit_edit_active">
+        	  <input type="checkbox" checked name="edit_active" id="edit_active" class="ui-widget-content ui-corner-all">
+	          <label for="edit_active">Связка активна</label>
+	  </div>
+        </fieldset>
+      </form>
+    </div>
+
+
+    <div id="sourfiers-contain" class="ui-widget">
+      <h1>В отчет включены:</h1>
+      <table id="sourfiers" class="ui-widget ui-widget-content">
+        <thead>
+          <tr class="ui-widget-header ">
+            <th>Источник</th>
+            <th>Классификатор</th>
+            <th>Активность</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>true</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button id="create-connective">Добавить новую связку</button>
+	<div id="additional_field"></div>
+  </div>
+  <div id="tabs-sources">
+
+    <div id="dialog-form-source" title="Добавить новый источник">
+      <p class="validateTips">Все поля обязательны для заполнения.</p>
+      <form id="add_form_source">
+        <fieldset>
+          <label for="newsource">Источник</label>
+          <input type="text" name="newsource" id="newsource" class="text ui-widget-content ui-corner-all">
+
+	  <div style="display: inline-flex;">
+          <input type="checkbox" checked name="newsource_active" id="newsource_active" class="ui-widget-content ui-corner-all">
+          <label for="newsource_active">Источник активен</label>
+	  </div>
+        </fieldset>
+      </form>
+    </div>
+
+
+    <div id="source-contain" class="ui-widget">
+      <h1>Все источники:</h1>
+      <table id="sources" class="ui-widget ui-widget-content">
+        <thead>
+          <tr class="ui-widget-header ">
+            <th>Источник</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Подождите, пожалуйста</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button id="create-source">Добавить новый источник</button>
+  </div>
+  <div id="tabs-classifiers">
+    <div id="classifier-contain" class="ui-widget">
+      <h1>Все Классификаторы:</h1>
+      <table id="classifiers" class="ui-widget ui-widget-content">
+        <thead>
+          <tr class="ui-widget-header ">
+            <th>Классификатор</th>
+            <th>Источник</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Подождите, пожалуйста</td>
+	    <td>Подождите, пожалуйста</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button id="create-classifier">Добавить новый классификатор</button>
+  </div>
+
+    <div id="dialog-form-classifier" title="Добавить новый классификатор">
+      <p class="validateTips">Все поля обязательны для заполнения.</p>
+      <form id="add_form_source">
+        <fieldset>
+          <label for="newclassifier">Классификатор</label>
+          <input type="text" name="newclassifier" id="newclassifier" class="text ui-widget-content ui-corner-all">
+
+          <label for="newclassifier_source">Источник</label>
+          <select name="newclassifier_source" id="newclassifier_source" class="ui-widget-content ui-corner-all">
+            <option>Нажать для выбора</option>
+            <?=$sources;?>
+          </select>
+	  <br /><br />
+	  <div style="display: inline-flex;">
+        	  <input type="checkbox" checked name="newclassifier_active" id="newclassifier_active" class="ui-widget-content ui-corner-all">
+	          <label for="newclassifier_active">Классификатор активен</label>
+	  </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <div id="tabs-manual-setting">
+	<div id="get_report">
+		<br />
+		<label for="from">&nbsp;Сформировать отчет с:  </label>
+		<input type="text" id="from" name="from">
+		<label for="to">&nbsp;по:</label>
+		<input type="text" id="to" name="to">
+		<br />
+		<button class="get_report">Получить отчет</button>&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+    </div>
+
+    <div id="tabs-el-term-sisadmin">
+	<div id="get_report1">
+		<br />
+                <label for="from1">&nbsp;Сформировать отчет с:  </label>
+                <input type="text" id="from1" name="from1">
+                <label for="to1">&nbsp;по:</label>
+                <input type="text" id="to1" name="to1">
+                <br />
+                <button class="get_report1">Получить отчет</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+</div>
+
+<div id="ajax_loader">
+<div class="transparency">
+<!-- Это прозрачный блок-->
+</div>
+<img src="img/ajax-loader.gif" />
+
+</div>
+</body>
+</html>

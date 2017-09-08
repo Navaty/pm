@@ -1,0 +1,16 @@
+AddDefaultCharset utf-8
+
+#4. Сжатие текстовых файлов
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE font/woff
+AddOutputFilterByType DEFLATE font/woff2
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+#webservices
+AddOutputFilterByType DEFLATE application/json

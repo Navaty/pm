@@ -1,0 +1,157 @@
+<?php
+include ("take_tasks_from_base.php");
+require_once 'phpexcel/Classes/PHPExcel.php';
+
+function give_me_report_terminal_to_mail($starttime, $endtime, $project_task_id, $current_time) {
+	$tasks_open = project_task_count($project_task_id,$starttime,$endtime,"open","yes");
+	foreach($tasks_open as $item){
+                $array_tasks_open[] = $item["task_id"];
+        }
+        $tasks_open = array_unique($array_tasks_open);
+	$open_tasks_from_filter = number_tasks_from_filter($tasks_open);
+//	var_dump(in_array("370580", $open_tasks_from_filter));
+	$open_count_tasks = count_tasks($open_tasks_from_filter);
+	$info_about_all_tasks = Array();
+	$open_tasks_info = Array();
+
+	foreach($open_count_tasks as $info) {
+		if($info["count"]>0) {
+			foreach($info["tasks"] as $onetask) {
+				$taskinfo = get_info_about_task($onetask, $current_time);
+				if($taskinfo["tasklive"]> 172800) {
+					$open_tasks_info[] = $onetask;
+				}
+				else {
+					foreach($taskinfo["companiesworktime"] as $companies_time) {
+						if($companies_time["time"] > 86400) {
+							$open_tasks_info[] = $onetask;
+						}
+					}
+				}
+			}
+			$open_tasks_info = array_unique($open_tasks_info);
+		}
+	}
+	return $open_tasks_info;
+}
+
+function give_me_overdue_time_to_mail($task, $current_time) {
+	$timework = get_info_about_task($task, $current_time);
+	$count_overdue_all = Array();
+	foreach($timework["companiesworktime"] as $item_worktime) {
+		if($item_worktime["time"] > 86400) {
+			if(empty($count_overdue_all)) {
+	                        $variable["name"] = $item_worktime["name"];
+                                $variable["time"] = $item_worktime["time"] - 86400;
+                                $count_overdue_all[] = $variable;
+                        }
+                        else {
+                                $flag_new = true;
+                                for($i=0; $i<count($count_overdue_all); $i++) {
+                                	if($item_worktime["name"] == $count_overdue_all[$i]["name"]) {
+                                        	$count_overdue_all[$i]["time"] += $item_worktime["time"] - 86400;
+                                                $flag_new = false;
+                                        }
+                                }
+                                if($flag_new) {
+                                	$variable["name"] =  $item_worktime["name"];
+                                        $variable["time"] = $item_worktime["time"] - 86400;
+                                        $count_overdue_all[] = $variable;
+                                }
+                        }
+		}
+	}
+	return $count_overdue_all;
+}
+
+
+$post = $_REQUEST;
+$project_task_id = 4077;
+$starttime = '01.03.2014';
+$endtime = date("d.m.Y", time());
+$current_time = time();
+
+$info = give_me_report_terminal_to_mail($starttime, $endtime, $project_task_id, $current_time);
+$html = '<p>Статистика формируется по задачам из СУП с 01.03.2014 г.</p><p>На '.date("d-m-Y", $current_time).' просроченных задач - '.count($info).' шт.</p>';
+$html .= '<table border="1"><tr><td style="text-align: center;">№</td><td style="text-align: center;">Дата</td><td style="text-align: center;">Дата заявки</td><td style="text-align: center;">ЛПУ</td><td style="text-align: center;">Информация о терминале</td><td style="text-align: center;">Номер в СУП</td><td style="text-align: center;">Кто нарушил</td><td style="text-align: center;">Причина</td></tr>';
+$counter = 0;
+foreach($info as $inf) {
+	$counter++;
+        $current_type_problem = give_me_overdue_time_to_mail($inf, $current_time);
+	$query1 = "
+                                        SELECT
+                                                *
+                                        FROM
+                                                `og_object_properties`
+                                        WHERE
+                                                rel_object_id = ".$inf."
+                                        AND
+                                                rel_object_manager = 'ProjectTasks'
+                        ";
+	$res1 = ssql($query1); //Смотрим доп. поля данной задачи
+	$lpu = '';
+        $terminal = '';
+	$klassificator = '';
+	foreach($res1 as $item4) {
+        	switch($item4["name"]) {
+                	case "ЛПУ":
+                        	$lpu = $item4["value"];
+                        break;
+                        case "ЛПУ:":
+                                $lpu = $item4["value"];
+                        break;
+			case "Терминал":
+                                $terminal .= $item4["value"].'<br /><br />';
+                        break;
+                        case "Терминал1":
+                                $terminal .= $item4["value"].'<br /><br />';
+                        break;
+                        case "Терминал2":
+                                $terminal .= $item4["value"].'<br /><br />';
+                        break;
+                        case "Терминал3":
+				$terminal .= $item4["value"].'<br /><br />';
+                        break;
+                        case "Терминал4":
+                                $terminal .= $item4["value"].'<br /><br />';
+                        break;
+                        case "Терминал5":
+                                $terminal .= $item4["value"].'<br /><br />';
+                        break;
+                        case "Классификатор":
+                                $klassificator = $item4["value"];
+                        break;
+		}
+	}
+	$query2 = "SELECT
+                                    created_on, text
+                           FROM
+                                    `og_project_tasks`
+                           WHERE
+                                    id = ".$inf."
+                        ";
+	$res2 = ssql($query2);
+	$created_on = '';
+	$text = '';
+	foreach($res2 as $item2) {
+		$created_on = datetime_to_timestamp($item2["created_on"]);
+		$text = $item2["text"];
+	}
+	$overdue_companies_class_error = '';
+	foreach($current_type_problem as $info_item) {
+		if(!empty($info_item))
+			$overdue_companies_class_error .= $info_item["name"].' просрочил '.ceil(($info_item["time"]/(60*60*24))).' дн. ('.round( ($info_item["time"]/(60*60)), 2, PHP_ROUND_HALF_UP).' ч.)<br />';
+	}
+	$html .='<tr><td style="text-align: center;">'.$counter.'</td><td style="text-align: center;">'.date("d.m.Y", $current_time).'</td><td style="text-align: center;">'.date("d.m.Y H:i:s", $created_on).'</td><td style="text-align: center;">'.$lpu.'</td><td style="text-align: center;">'.$terminal.'</td><td style="text-align: center;"><a href="http://pm.citrt.net/index.php?c=task&a=view_task&id='.$inf.'">'.$inf.'</a></td><td style="text-align: center;">'.$overdue_companies_class_error.'</td><td style="text-align: center;">'.$text.'</td></tr>';
+}
+
+$html .= '</table>';
+//echo $html;
+$ToID = array('Andrey.C@tatar.ru', 'A.H@tatar.ru', 'Timur.Zaripov@tatar.ru', 'L.G@tatar.ru', 'Elena.Lukina@tatar.ru', 'Aygul.Komarova@tatar.ru', 'Yuliya.Starikova@tatar.ru', 'katkov@infomatika.ru', 'Irina.Kireeva@tatar.ru', 'Adeliya.Zhilkina@tatar.ru', 'Ibragimov.Ruslan@tatar.ru', 'Stanislav.Ignatev@tatar.ru');
+//$ToID = array('Andrey.C@tatar.ru', 'Aygul.Komarova@tatar.ru');
+$FromID = 'terminal@tatar.ru';
+$Subject = 'Просроченные задачи по терминалам Минздрава';
+for($i=0; $i<count($ToID); $i++) {
+	 opengoo_insert_queued_email_without_feng($ToID[$i], $FromID, $Subject, $html);
+}
+?>

@@ -28,14 +28,15 @@
     <!-- поля для таблицы og_object_subscriptions -->
     <!-- Подписчики-->
     <subscriptions>
-      <user_id>21</user_id>
+      <user_id>340</user_id>
       <user_id>36</user_id>
       <user_id>55</user_id>
       <user_id>65</user_id>
       <user_id>104</user_id>
       <user_id>107</user_id>
 <!--  <user_id>138</user_id> -->
-      <user_id>140</user_id>
+<!--      <user_id>140</user_id> -->
+      <user_id>496</user_id>
       <user_id>141</user_id>
       <user_id>143</user_id>
 <!--  <user_id>150</user_id> -->
@@ -58,7 +59,7 @@
     <title>ЦОУС</title>
     <isid>cous</isid>
    <!--  <assigned_to_user_id_ALMAZ>170</assigned_to_user_id_ALMAZ> -->
-    <assigned_to_user_id>513</assigned_to_user_id>
+    <assigned_to_user_id>143</assigned_to_user_id>
     <assigned_by_id>51</assigned_by_id>
  <!--   <workspace_id/> -->
    <workspaces>
@@ -76,7 +77,7 @@
     </reminders>
     <subscriptions>
 <!--      <user_id>51</user_id> -->
-      <user_id>170</user_id>
+      <user_id>143</user_id>
       <user_id>325</user_id>
 <!--      <user_id>294</user_id> -->
     </subscriptions>
@@ -134,7 +135,7 @@
   <is>
     <title>СТИС11Электронная очередь</title>
     <isid>stis11</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
+    <assigned_to_user_id>496</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>4907</workspace_id>
     <reminders>
@@ -142,8 +143,8 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
-    <!--  <user_id>385</user_id> -->
+      <user_id>496</user_id>
+    <user_id>340</user_id>
       <user_id>159</user_id>   
     </subscriptions>
   </is>
@@ -151,7 +152,7 @@
   <is>
     <title>СТИС30НародныйКонтроль</title>
     <isid>stis30</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
+    <assigned_to_user_id>721</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>5860</workspace_id>
     <reminders>
@@ -159,10 +160,9 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
+      <user_id>496</user_id>
       <user_id>325</user_id>
-    <!--  <user_id>385</user_id> -->
-      <user_id>556</user_id>      
+      <user_id>340</user_id>     
     </subscriptions>
   </is>
 
@@ -177,15 +177,15 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
-   <!--   <user_id>385</user_id> -->
+      <user_id>496</user_id>
+      <user_id>340</user_id>
     </subscriptions>
   </is>
 
   <is>
     <title>СТИС59ТП_АИС_МФЦ</title>
     <isid>stis59</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
+    <assigned_to_user_id>496</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>5130</workspace_id>
     <reminders>
@@ -193,10 +193,10 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-<!--      <user_id>21</user_id> -->
-      <user_id>140</user_id>
+      <user_id>340</user_id>
+      <user_id>496</user_id>
 <!--      <user_id>385</user_id> -->
-      <user_id>170</user_id>
+<!--      <user_id>170</user_id> -->
     </subscriptions>
   </is>
 
@@ -211,8 +211,8 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
-<!--      <user_id>385</user_id> -->
+      <user_id>496</user_id>
+      <user_id>340</user_id> 
 <!--      <user_id>483</user_id> -->
     </subscriptions>
   </is>
@@ -220,7 +220,7 @@
   <is>
     <title>СТИС61ТПТонкихКлиентов</title>
     <isid>stis61</isid>
-    <assigned_to_user_id>274</assigned_to_user_id>
+    <assigned_to_user_id>787</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>4535</workspace_id>
     <reminders>
@@ -228,15 +228,11 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>274</user_id>
-      <user_id>140</user_id>
-<!--      <user_id>385</user_id> -->
+      <user_id>496</user_id>
+      <user_id>340</user_id>
       <user_id>383</user_id>
-      <user_id>300</user_id>
       <user_id>525</user_id>
-      <user_id>423</user_id>
-      <user_id>424</user_id>
-      <user_id>91</user_id>
+      <user_id>787</user_id>
       <user_id>92</user_id>
     </subscriptions>
   </is>
@@ -244,7 +240,7 @@
   <is>
     <title>СТИС45ЕГОСОВ</title>
     <isid>stis45</isid>
-    <assigned_to_user_id>652</assigned_to_user_id>
+    <assigned_to_user_id>768</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>5861</workspace_id>
     <reminders>
@@ -252,10 +248,10 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
-      <user_id>652</user_id>
-<!--      <user_id>385</user_id> -->
-<!--      <user_id>135</user_id> -->
+      <user_id>496</user_id>
+      <user_id>768</user_id>
+      <user_id>340</user_id> 
+<!--      <user_id></user_id> -->
     </subscriptions>
   </is>
 
@@ -263,7 +259,7 @@
   <is>
     <title>СТИС75ТПИсполком</title>
     <isid>stis75</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
+    <assigned_to_user_id>496</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>4423</workspace_id>
     <reminders>
@@ -271,15 +267,15 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
-<!--      <user_id>385</user_id> -->
+      <user_id>496</user_id>
+      <user_id>340</user_id> 
     </subscriptions>
   </is>
 
   <is>
     <title>СТИС60ЖалобыПредложения</title>
     <isid>complaints_proposals</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
+    <assigned_to_user_id>496</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>4155</workspace_id>
     <reminders>
@@ -287,8 +283,8 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
-<!--      <user_id>385</user_id> -->
+      <user_id>496</user_id>
+      <user_id>340</user_id>
     </subscriptions>
   </is>
 
@@ -296,7 +292,7 @@
     <title>ДОУ</title>
     <isid>kindergarten</isid>
 <!--    <assigned_to_user_id>138</assigned_to_user_id> -->
-    <assigned_to_user_id>558</assigned_to_user_id>
+    <assigned_to_user_id>345</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>746</workspace_id>
     <reminders>
@@ -306,14 +302,14 @@
     <subscriptions>
       <user_id>325</user_id>
       <user_id>104</user_id>
- <!-- <user_id>138</user_id> -->
+      <user_id>316</user_id> 
     </subscriptions>
   </is>
 
   <is>
     <title>Э-Образование</title>
     <isid>education</isid>
-    <assigned_to_user_id>333</assigned_to_user_id>
+    <assigned_to_user_id>340</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>737</workspace_id>
     <reminders>
@@ -322,10 +318,10 @@
     </reminders>
     <subscriptions>
       <user_id>164</user_id>
-      <user_id>107</user_id>
+      <user_id>607</user_id>
+      <user_id>340</user_id>
       <user_id>166</user_id>
-      <user_id>333</user_id>
-      <user_id>140</user_id>
+      <user_id>340</user_id>
       <user_id>496</user_id>
     </subscriptions>
   </is>
@@ -342,8 +338,9 @@
     </reminders>
     <subscriptions>
       <user_id>143</user_id>
+      <user_id>340</user_id>
       <user_id>157</user_id>
-      <user_id>140</user_id>
+      <user_id>496</user_id>
       <user_id>65</user_id>
       <user_id>152</user_id>
       <user_id>130</user_id>
@@ -365,7 +362,7 @@
     </reminders>
     <subscriptions>
       <user_id>189</user_id>
-      <user_id>170</user_id>
+<!--      <user_id>170</user_id> -->
       <user_id>197</user_id>
 <!--      <user_id>135</user_id> -->
       <user_id>325</user_id>
@@ -376,7 +373,7 @@
   <is>
     <title>Э-ОбразованиеКЦ</title>
     <isid>cceducation</isid>
-    <assigned_to_user_id>333</assigned_to_user_id>
+    <assigned_to_user_id>340</assigned_to_user_id>
     <assigned_by_id>106</assigned_by_id>
     <workspace_id>1103</workspace_id>
     <reminders>
@@ -385,9 +382,8 @@
     </reminders>
     <subscriptions>
       <user_id>496</user_id>
+      <user_id>340</user_id>
       <user_id>79</user_id>
-      <user_id>140</user_id>
-      <user_id>333</user_id>
       <user_id>489</user_id>
     </subscriptions>
   </is>
@@ -439,7 +435,7 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>170</user_id>
+<!--      <user_id>170</user_id> -->
       <user_id>181</user_id>
       <user_id>189</user_id>
       <user_id>190</user_id>
@@ -493,7 +489,7 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
+      <user_id>496</user_id>
       <user_id>424</user_id>
       <user_id>423</user_id>
       <user_id>426</user_id>
@@ -501,6 +497,7 @@
       <user_id>92</user_id>
       <user_id>274</user_id>
       <user_id>300</user_id>
+      <user_id>340</user_id>
      <user_id>174</user_id>
       <user_id>494</user_id>
     </subscriptions>
@@ -509,15 +506,16 @@
   <is>
     <title>СТИС_ЭОчередь</title>
     <isid>stiseochered</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
-    <assigned_by_id>140</assigned_by_id>
+    <assigned_to_user_id>496</assigned_to_user_id>
+    <assigned_by_id>496</assigned_by_id>
     <workspace_id>1849</workspace_id>
     <reminders>
       <type>reminder_email</type>
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
+      <user_id>496</user_id>
+      <user_id>340</user_id>
 <!--      <user_id>385</user_id> -->
     </subscriptions>
   </is>
@@ -525,7 +523,7 @@
   <is>
     <title>СТИС_отГМУ</title>
     <isid>form_stis_from_gmu</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
+    <assigned_to_user_id>496</assigned_to_user_id>
     <assigned_by_id>320</assigned_by_id>
     <workspace_id>4050</workspace_id>
     <reminders>
@@ -533,9 +531,9 @@
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
+      <user_id>496</user_id>
 <!--      <user_id>385</user_id> -->
-      <user_id>333</user_id>
+      <user_id>340</user_id>
     </subscriptions>
   </is>
 
@@ -557,16 +555,17 @@
   <is>
     <title>СТИС_Инспектор</title>
     <isid>stis_inspektor_23</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
-    <assigned_by_id>140</assigned_by_id>
+    <assigned_to_user_id>721</assigned_to_user_id>
+    <assigned_by_id>496</assigned_by_id>
     <workspace_id>5863</workspace_id>
     <reminders>
       <type>reminder_email</type>
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
+      <user_id>496</user_id>
       <user_id>325</user_id>
+      <user_id>340</user_id>
 <!--      <user_id>385</user_id> -->
       <user_id>36</user_id>
     </subscriptions>
@@ -575,16 +574,17 @@
   <is>
     <title>СТИС_Эко-патруль</title>
     <isid>stis_ekopatrul_24</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
-    <assigned_by_id>140</assigned_by_id>
+    <assigned_to_user_id>721</assigned_to_user_id>
+    <assigned_by_id>496</assigned_by_id>
     <workspace_id>5864</workspace_id>
     <reminders>
       <type>reminder_email</type>
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
+      <user_id>496</user_id>
       <user_id>325</user_id>
+      <user_id>340</user_id>
 <!--      <user_id>385</user_id> -->
       <user_id>36</user_id>
     </subscriptions>
@@ -593,31 +593,32 @@
   <is>
     <title>СТИС_Терминалы_ЗРТ</title>
     <isid>stis_81</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
-    <assigned_by_id>140</assigned_by_id>
+    <assigned_to_user_id>496</assigned_to_user_id>
+    <assigned_by_id>496</assigned_by_id>
     <workspace_id>5853</workspace_id>
     <reminders>
       <type>reminder_email</type>
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
-<!--      <user_id>385</user_id> -->
+      <user_id>496</user_id>
+      <user_id>340</user_id> 
     </subscriptions>
   </is>
 
   <is>
     <title>СТИС_ТП_Инкассаторы</title>
     <isid>stis15</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
-    <assigned_by_id>140</assigned_by_id>
+    <assigned_to_user_id>496</assigned_to_user_id>
+    <assigned_by_id>496</assigned_by_id>
     <workspace_id>5500</workspace_id>
     <reminders>
       <type>reminder_email</type>
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
+      <user_id>496</user_id>
+      <user_id>340</user_id>
 <!--      <user_id>385</user_id> -->
 <!--      <user_id>483</user_id> -->
     </subscriptions>
@@ -627,7 +628,7 @@
     <title>СТИС_Календарь_Госслужащего</title>
     <isid>stis38</isid>
     <assigned_to_user_id>650</assigned_to_user_id>
-    <assigned_by_id>140</assigned_by_id>
+    <assigned_by_id>496</assigned_by_id>
     <workspace_id>5877</workspace_id>
     <reminders>
       <type>reminder_email</type>
@@ -636,27 +637,28 @@
     <subscriptions>
       <user_id>325</user_id>
 <!--      <user_id>385</user_id> -->
-      <user_id>140</user_id>
+      <user_id>496</user_id>
 <!--      <user_id></user_id> -->
       <user_id>650</user_id>
       <user_id>17</user_id>
+      <user_id>340</user_id>
     </subscriptions>
   </is>
 
  <is>
     <title>СТИС_Спортивный_портал</title>
     <isid>stis44</isid>
-    <assigned_to_user_id>140</assigned_to_user_id>
-    <assigned_by_id>140</assigned_by_id>
+    <assigned_to_user_id>496</assigned_to_user_id>
+    <assigned_by_id>496</assigned_by_id>
     <workspace_id>6111</workspace_id>
     <reminders>
       <type>reminder_email</type>
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>140</user_id>
+      <user_id>496</user_id>
+      <user_id>340</user_id>
       <user_id>217</user_id>
-      <user_id>333</user_id>
       <user_id>36</user_id>
     </subscriptions>
   </is>
@@ -664,17 +666,106 @@
 <is>
     <title>СТИС_Сведения_по_доходам</title>
     <isid>stis02</isid>
-    <assigned_to_user_id>583</assigned_to_user_id>
-    <assigned_by_id>140</assigned_by_id>
+    <assigned_to_user_id>679</assigned_to_user_id>
+    <assigned_by_id>496</assigned_by_id>
     <workspace_id>6186</workspace_id>
     <reminders>
       <type>reminder_email</type>
       <minutes_before>10</minutes_before>
     </reminders>
     <subscriptions>
-      <user_id>583</user_id>
-      <user_id>140</user_id>
+      <user_id>679</user_id>
+      <user_id>340</user_id>
+      <user_id>496</user_id>
     </subscriptions>
   </is>
 
+<is>
+    <title>СТИС_Популяризация_ЕСИА</title>
+    <isid>stis67</isid>
+    <assigned_to_user_id>343</assigned_to_user_id>
+    <assigned_by_id>496</assigned_by_id>
+    <workspace_id>6348</workspace_id>
+    <reminders>
+      <type>reminder_email</type>
+      <minutes_before>10</minutes_before>
+    </reminders>
+    <subscriptions>
+      <user_id>343</user_id>
+      <user_id>340</user_id>
+      <user_id>496</user_id>
+    </subscriptions>
+  </is>
+
+<is>
+    <title>Система администрирования</title>
+    <isid>stis47</isid>
+    <assigned_to_user_id>217</assigned_to_user_id>
+    <assigned_by_id>651</assigned_by_id>
+    <workspace_id>6554</workspace_id>
+    <reminders>
+      <type>reminder_email</type>
+      <minutes_before>10</minutes_before>
+    </reminders>
+    <subscriptions>
+      <user_id>217</user_id>
+      <user_id>629</user_id>
+      <user_id>727</user_id>
+    </subscriptions>
+  </is>
+
+<is>
+    <title>ТП ФРГУ</title>
+    <isid>stis21</isid>
+    <assigned_to_user_id>769</assigned_to_user_id>
+    <assigned_by_id>651</assigned_by_id>
+    <workspace_id>6665</workspace_id>
+    <reminders>
+      <type>reminder_email</type>
+      <minutes_before>10</minutes_before>
+    </reminders>
+    <subscriptions>
+      <user_id></user_id>
+      <user_id>769</user_id>
+      <user_id>340</user_id>
+      <user_id>496</user_id>
+    </subscriptions>
+  </is>
+
+<is>
+    <title>ТП ФРГУ-Методические</title>
+    <isid>stis21m</isid>
+    <assigned_to_user_id>770</assigned_to_user_id>
+    <assigned_by_id>651</assigned_by_id>
+    <workspace_id>6665</workspace_id>
+    <reminders>
+      <type>reminder_email</type>
+      <minutes_before>10</minutes_before>
+    </reminders>
+    <subscriptions>
+      <user_id></user_id>
+      <user_id>770</user_id>
+      <user_id>340</user_id>
+      <user_id>496</user_id>
+    </subscriptions>
+  </is>
+
+  <is>
+    <title>Реестр информационных систем</title>
+    <isid>reestris</isid>
+    <assigned_to_user_id>780</assigned_to_user_id>
+    <assigned_by_id>651</assigned_by_id>
+    <workspace_id>6682</workspace_id>
+    <reminders>
+      <type>reminder_email</type>
+      <minutes_before>10</minutes_before>
+    </reminders>
+    <subscriptions>
+     <user_id>780</user_id> 
+      <user_id>174</user_id>
+    </subscriptions>
+  </is>
+
+
 </systems>
+

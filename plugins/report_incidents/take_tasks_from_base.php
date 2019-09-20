@@ -39,8 +39,8 @@ function number_tasks_from_filter($array_tasks) {
                                             rel_object_manager = 'ProjectTasks'";
 
           $res_object_properties = ssql($query_object_properties);
-
-          $class_error_prop = '';
+	  //print_r($res_object_properties);
+	  $class_error_prop = '';
           $type_problem_prop = '';
           foreach($res_object_properties as $item_object_properties) {
                switch($item_object_properties["name"]) {

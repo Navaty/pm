@@ -17,9 +17,9 @@ define('COOKIE_PATH', '/');
 define('DEBUG', false);
 define('SEED', 'afeffc5127563f4cc4fe2d432d227c1f');
 define('DB_CHARSET', 'utf8');
-define('COMPRESSED_CSS', true);
-define('COMPRESSED_JS', true);
-define('USE_JS_CACHE', true);
+#define('COMPRESSED_CSS', true);
+#define('COMPRESSED_JS', true);
+#define('USE_JS_CACHE', true);
 
 return true;
 ?>

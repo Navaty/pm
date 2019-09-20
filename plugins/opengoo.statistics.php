@@ -235,6 +235,8 @@ sortwithcolor(8);
     <option value=4073 <? if($projectid=="4073"){ echo "selected";}?>>ГКН (Минзем)</option>
     <option value=5876 <? if($projectid=="5876"){ echo "selected";}?>>38 Календарь госслужащего</option>
     <option value=6170 <? if($projectid=="6170"){ echo "selected";}?>>Сведения о доходах</option>
+    <option value=5338 <? if($projectid=="5338"){ echo "selected";}?>>Школьный Экопатруль</option>
+    <option value=6665 <? if($projectid=="6665"){ echo "selected";}?>>ФРГУ</option>
 
     </select>
     </td>
@@ -331,17 +333,26 @@ case "5337":
 case "463":
   $line = "АИС ЗАГС";
   break;
-case "4448";
+case "4448":
   $line = "ЕГИС ОВ - Отчеты ведомств";
   break;
 case "6089":
   $line = "Спортивный портал";
   break;
-case "4071";
+case "4071":
   $line = "Подача заявления на предоставление земель многодетным семьям";
   break;
-case "4073";
+case "4073":
   $line = "ГКН (Минзем)";
+  break;
+case "6170":
+  $line = "Сведения по доходам";
+  break;
+case "5338":
+  $line = "Школьный Экопатруль";
+  break;
+case "6665":
+  $line = "ФРГУ";
   break;
 default:
   $line = "МИС РТ";

@@ -1,34 +1,13 @@
 Array
 (
-    [isname] => oktell
+    [title] => Мой регион. Сообщение из формы обратной связи от WallacetuS
+    [appeal] => I\'m 23. I have 000. How can I best use it to make more money: http://cort.as/-PP2b?NAKsKu1iNng7
     [data] => Array
         (
-            [Внешний_номер] => 8432399508
-            [Фамилия] => 
-            [Имя] => 
-            [Отчество] => 
-            [Контактный_телефон] => 
+            [Имя пользователя] => WallacetuS
+            [E-mail] => sally_carey@hotmail.co.uk
+            [Телефон] => 82916521659
         )
 
-    [assignedbyid] => 519
-    [oktellsession] => 37654284-c834-42c8-b1c3-d638f5e1c60c
-    [title] => oktell
-    [email_prefix] => 
-    [email_suffix] => 
-    [assigned2id] => 519
-    [projectid] => Array
-        (
-            [Услуга] => 5664
-            [Тип_обращения] => 1228
-        )
-
-    [appeal] => Обращение гражданина:
-как записаться на прием
-
-Ответ сотрудника ЦИТ:
-проинформировали по интерфейсу портала
-    [answer] => проинформировали по интерфейсу портала
-    [autoclose] => 1
-    [mainprojectname] => Тип_обращения
-    [mainprojectlevel] => 1
+    [isname] => portal
 )

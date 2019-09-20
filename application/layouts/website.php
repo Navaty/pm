@@ -11,10 +11,11 @@
 	<!-- script src="http://www.savethedevelopers.org/say.no.to.ie.6.js"></script -->
 	<title><?php echo clean(CompanyWebsite::instance()->getCompany()->getName()) . ' - ' . PRODUCT_NAME ?></title>
 	<?php echo link_tag(with_slash(ROOT_URL)."favicon.ico", "rel", "shortcut icon") ?>
-	<?php echo add_javascript_to_page("og/app.js") // loaded first because it's needed for translating?>
+	<?php echo add_javascript_to_page("og/app.js") // loaded first because it's needed for translating ?>
 	<?php echo add_javascript_to_page(get_url("access", "get_javascript_translation")); ?>
-	<?php //echo add_javascript_to_page(with_slash(ROOT_URL) . 'language/' . Localization::instance()->getLocale() . "/lang.js") ?>
+	<?php// echo add_javascript_to_page(with_slash(ROOT_URL) . 'language/' . Localization::instance()->getLocale() . "/lang.js") ?>
 	<?php echo meta_tag('content-type', 'text/html; charset=utf-8', true) ?>
+
 <?php
 
 	$version = product_version();

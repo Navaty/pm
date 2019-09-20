@@ -56,7 +56,7 @@ if(!$_REQUEST["assignedbyid"]) {
 } else {
     $assignedbyid = $_REQUEST["assignedbyid"];
 }
-$assigned2id = 170;//$xmldata["is"][$iskey]["assigned_to_user_id"];
+$assigned2id = 513;//$xmldata["is"][$iskey]["assigned_to_user_id"];
 $subscriptions = $xmldata["is"][$iskey]["subscriptions"];
 
 if(isset($debug)) {

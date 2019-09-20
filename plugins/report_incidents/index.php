@@ -113,7 +113,6 @@ if(is_array($res_classifier)) {
 						data = $.parseJSON(msg1);
 						$("#ajax_loader").css("display", "none");
 						$("#get_report").append(data);
-//						alert(data);
 					},
 					error: function(msg_err){
 						$("#ajax_loader").css("display", "none");
@@ -434,6 +433,7 @@ if(is_array($res_classifier)) {
     <li><a href="#tabs-sources">Источники</a></li>
     <li><a href="#tabs-classifiers">Классификаторы</a></li>
     <li><a href="#tabs-el-term-sisadmin">Отчет терминалы эл. очереди - обращения админов</a></li>
+    <li><a href="#tabs-tst">test</a></li>
   </ul>
   <div id="tabs-1">
     <p>Сервис предназначен для настройки формирования отчета по задачам, где исходными данными являются дата начала/конца, источник и классификатор.</p>
@@ -611,7 +611,6 @@ if(is_array($res_classifier)) {
                 <button class="get_report1">Получить отчет</button>&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
     </div>
-
 </div>
 
 <div id="ajax_loader">

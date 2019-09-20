@@ -232,7 +232,7 @@ function make_appeal_form() {
        // More extra space:
        extraSpace : 20
    });</script>
-  <textarea class="textarea textarea-autoresizeonload ready2clear" name="appeal"></textarea>';
+  <textarea class="textarea textarea-autoresizeonload ready2clear" placeholder="Фиксируя задачи по МП, необходимо указывать модель и версию ОС телефона, версию приложения." name="appeal"></textarea>';
   return $html;
 }
 

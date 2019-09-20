@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 include_once "statusage.php"; //by almaz - usage control
 //ini_set('error_reporting', E_ALL);
 //ini_set('display_errors', 1);
@@ -19,9 +20,9 @@ if($_POST && $_POST['appeal']){
   unset($_POST['appeal']);
 
   $Data		= $_POST;
-  $Subscrip	= array("user_id"=>array(217,325,316,644,472,616,522,556));
+  $Subscrip	= array("user_id"=>array(217,325,316,644,472,522,695,711,702));
 //217-Олеся Головкова;204Альбина;171Эльза;51Елена;290Лилия Шаих;325-Суркова Марина;316-Назарова Надежда;644-Базгутдинова Рузана;472-Саженкова Екатерина;
-//385-Мансурова Фарюза;522-Кузьмина Алина,616-Григорян Нарине;556-Гарипова Резеда;
+//385-Мансурова Фарюза;522-Кузьмина Алина,616-Григорян Нарине;695-Лениза; 711 - Нурзалия; 702 - Лейсан Гимадиева;
 
   $result['taskId'] = opengoo_webservice_insert_task($ProjectId,$Title,$Assigned2iD,$AssignedById,$Appeal,$Data,$Subscrip);
 echo json_encode($result);

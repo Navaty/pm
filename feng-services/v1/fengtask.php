@@ -1,7 +1,7 @@
 <?php
 class fengtask extends apiBaseClass {
 
-	private $fos_subscribers = array("user_id"=>array(104,290,325,316,522,644,472,532,616,556,345));
+	private $fos_subscribers = array("user_id"=>array(104,290,325,316,522,644,472,532,345,695,711,702));
                         //217-Олеся Головкова;522-Кузьмина Алина;104Неля;290Лилия Шаих;325-Суркова Марина;316-Назарова Надежда;
                         //644-Базгутдинова Рузана;472-Саженкова Екатерина;385-Мансурова Фарюза,616-Нарине 345-Хабибрахманова Эльвира Григорян;556-Гарипова Резеда;
 
@@ -157,7 +157,7 @@ class fengtask extends apiBaseClass {
                           unset($apiMethodParams->appeal);
 
                           $Data         = (array) $apiMethodParams;
-                          $Subscrip     = array("user_id"=>array(217,325,316,644,472,616,556));
+                          $Subscrip     = array("user_id"=>array(217,325,316,644,472,695,711,702));
                         //217-Олеся Головкова;204Альбина;104Неля;290Лилия Шаих;325-Суркова Марина;316-Назарова Надежда;
                         //644-Базгутдинова Рузана;472-Саженкова Екатерина;385-Мансурова Фарюза,616-Нарине Григорян;556-Гарипова Резеда;
                         $taskid = opengoo_webservice_insert_task($ProjectId,$Title,$Assigned2iD,$AssignedById,$Appeal,$Data,$Subscrip);
@@ -184,7 +184,7 @@ class fengtask extends apiBaseClass {
                           unset($apiMethodParams->appeal);
 
                           $Data         = (array) $apiMethodParams;
-                          $Subscrip     = array("user_id"=>array(217,325,316,644,472,616,556,345));
+                          $Subscrip     = array("user_id"=>array(217,325,316,644,472,345,695,711,702));
                         //217-Олеся Головкова;204Альбина;104Неля;290Лилия Шаих;325-Суркова Марина;316-Назарова Надежда;
                         //644-Базгутдинова Рузана;472-Саженкова Екатерина;385-Мансурова Фарюза;616-Нарине Григорян;556-Гарипова Резеда;345-Хабибрахманова Эльвира
                         $taskid = opengoo_webservice_insert_task($ProjectId,$Title,$Assigned2iD,$AssignedById,$Appeal,$Data,$Subscrip);

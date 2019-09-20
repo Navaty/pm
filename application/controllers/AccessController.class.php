@@ -626,7 +626,7 @@ class AccessController extends ApplicationController
                     $content .= "\n/* $f */\n";
                     $content .= "try {";
                     $content .= file_get_contents($f);
-                    $content .= "} catch (e) {}";
+                    $content .= "} catch (e) {e.message}";
                 }
             }
             $content .= "\n/* end */\n";

@@ -63,9 +63,9 @@ class fengtask extends apiBaseClass {
                           unset($apiMethodParams->Сообщение);
 
                           $Data         = (array) $apiMethodParams;
-                          if(!$autoclose) $Subscrip     = array("user_id"=>array(217,204,104,290,325,316,464,472));
+                          if(!$autoclose) $Subscrip     = array("user_id"=>array(217,204,104,290,325,316,464,472,695,711,702));
                         //217-Олеся Головкова;204Альбина;104Неля;290Лилия Шаих;325-Суркова Марина;316-Назарова Надежда;
-                        //464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза
+                        //464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза;695-Лениза; 711 - Нурзалия; 702 - Лейсан Гимадиева;
                         $taskid = opengoo_webservice_insert_task($ProjectId,$Title,$Assigned2iD,$AssignedById,$Appeal,$Data,$Subscrip);
                         if(is_numeric($taskid))  $retJSON->taskid = $taskid;
                           else $retJSON = APIConstants::json_error(APIConstants::$ERROR_CREATE_FENGTASK);
@@ -97,9 +97,9 @@ class fengtask extends apiBaseClass {
 			  unset($apiMethodParams->Сообщение);
 
 			  $Data         = (array) $apiMethodParams;
-			  if(!$autoclose) $Subscrip     = array("user_id"=>array(217,204,104,290,325,316,464,472));
+			  if(!$autoclose) $Subscrip     = array("user_id"=>array(217,204,104,290,325,316,464,472,695,711,702));
 			//217-Олеся Головкова;204Альбина;104Неля;290Лилия Шаих;325-Суркова Марина;316-Назарова Надежда;
-			//464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза
+			//464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза;695-Лениза; 711 - Нурзалия; 702 - Лейсан Гимадиева;
 			$taskid = opengoo_webservice_insert_task($ProjectId,$Title,$Assigned2iD,$AssignedById,$Appeal,$Data,$Subscrip);
 			if(is_numeric($taskid))  $retJSON->taskid = $taskid;
                           else $retJSON = APIConstants::json_error(APIConstants::$ERROR_CREATE_FENGTASK);
@@ -127,9 +127,9 @@ class fengtask extends apiBaseClass {
                           unset($apiMethodParams->Сообщение);
 
                           $Data         = (array) $apiMethodParams;
-                          $Subscrip     = array("user_id"=>array(217,204,104,290,325,316,464,472));
+                          $Subscrip     = array("user_id"=>array(217,204,104,290,325,316,464,472,695,711,702));
                         //217-Олеся Головкова;204Альбина;104Неля;290Лилия Шаих;325-Суркова Марина;316-Назарова Надежда;
-                        //464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза
+                        //464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза;695-Лениза; 711 - Нурзалия; 702 - Лейсан Гимадиева;
                         $taskid = opengoo_webservice_insert_task($ProjectId,$Title,$Assigned2iD,$AssignedById,$Appeal,$Data,$Subscrip);
                         if(is_numeric($taskid))  $retJSON->taskid = $taskid;
                           else $retJSON = APIConstants::json_error(APIConstants::$ERROR_CREATE_FENGTASK);
@@ -154,9 +154,9 @@ class fengtask extends apiBaseClass {
                           unset($apiMethodParams->appeal);
 
                           $Data         = (array) $apiMethodParams;
-                          $Subscrip     = array("user_id"=>array(217,325,316,464,472));
+                          $Subscrip     = array("user_id"=>array(217,325,316,464,472,695,711,702));
                         //217-Олеся Головкова;204Альбина;104Неля;290Лилия Шаих;325-Суркова Марина;316-Назарова Надежда;
-                        //464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза
+                        //464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза;695-Лениза; 711 - Нурзалия; 702 - Лейсан Гимадиева;
                         $taskid = opengoo_webservice_insert_task($ProjectId,$Title,$Assigned2iD,$AssignedById,$Appeal,$Data,$Subscrip);
                         if(is_numeric($taskid))  $retJSON->taskid = $taskid;
                           else $retJSON = APIConstants::json_error(APIConstants::$ERROR_CREATE_FENGTASK);
@@ -181,9 +181,9 @@ class fengtask extends apiBaseClass {
                           unset($apiMethodParams->appeal);
 
                           $Data         = (array) $apiMethodParams;
-                          $Subscrip     = array("user_id"=>array(217,325,316,464,472));
+                          $Subscrip     = array("user_id"=>array(217,325,316,464,472,695,711,702));
                         //217-Олеся Головкова;204Альбина;104Неля;290Лилия Шаих;325-Суркова Марина;316-Назарова Надежда;
-                        //464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза
+                        //464-Нигматуллина Алия;472-Саженкова Екатерина;385-Мансурова Фарюза;695-Лениза; 711 - Нурзалия; 702 - Лейсан Гимадиева;
                         $taskid = opengoo_webservice_insert_task($ProjectId,$Title,$Assigned2iD,$AssignedById,$Appeal,$Data,$Subscrip);
                         if(is_numeric($taskid))  $retJSON->taskid = $taskid;
                           else $retJSON = APIConstants::json_error(APIConstants::$ERROR_CREATE_FENGTASK);

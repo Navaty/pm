@@ -61,7 +61,7 @@ class TaskController extends ApplicationController {
 			flash_error(lang('no access permissions'));
 			ajx_current("empty");
 			return;
-		} // if
+		}  // if
 
 		$assigned_to = explode(':', array_var($_POST, 'assigned_to', ''));
 		try{
@@ -1092,11 +1092,12 @@ class TaskController extends ApplicationController {
 	 * @return null
 	 */
 	function edit_task() {
-		if (logged_user()->isGuest()) {
+		  if (logged_user()->isGuest()) {
 			flash_error(lang('no access permissions'));
 			ajx_current("empty");
 			return;
 		}
+			
 		$this->setTemplate('add_task');
 
 		$task = ProjectTasks::findById(get_id());

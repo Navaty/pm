@@ -147,7 +147,7 @@ foreach($info as $inf) {
 
 $html .= '</table>';
 //echo $html;
-$ToID = array('Andrey.C@tatar.ru', 'A.H@tatar.ru', 'Timur.Zaripov@tatar.ru', 'L.G@tatar.ru', 'Elena.Lukina@tatar.ru', 'Aygul.Komarova@tatar.ru', 'Yuliya.Starikova@tatar.ru', 'katkov@infomatika.ru', 'Irina.Kireeva@tatar.ru', 'Ibragimov.Ruslan@tatar.ru', 'Aygul.Hamadeeva@tatar.ru', 'Marat.Shigapov@tatar.ru', 'Maksim.R.Isaev@tatar.ru', 'Rushana.Yunusova@tatar.ru');
+$ToID = array('Andrey.C@tatar.ru', 'A.H@tatar.ru', 'Timur.Zaripov@tatar.ru', 'L.G@tatar.ru', 'Elena.Lukina@tatar.ru', 'Aygul.Komarova@tatar.ru', 'Yuliya.Starikova@tatar.ru', 'katkov@infomatika.ru', 'Irina.Kireeva@tatar.ru', 'Ibragimov.Ruslan@tatar.ru', 'Aygul.Hamadeeva@tatar.ru', 'Marat.Shigapov@tatar.ru', 'Maksim.Samarin@tatar.ru', 'Maksim.R.Isaev@tatar.ru');
 //$ToID = array('N.Ryabinin@tatar.ru');
 $FromID = 'terminal@tatar.ru';
 $Subject = 'Просроченные задачи по терминалам Минздрава';

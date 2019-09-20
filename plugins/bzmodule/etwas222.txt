@@ -1,3 +1,4 @@
 Array
 (
+    [PHPSESSID] => b67f01c3a5b26871ef73a82c8855795c
 )

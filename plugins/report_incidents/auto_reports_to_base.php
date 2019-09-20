@@ -10,9 +10,12 @@ ini_set('max_execution_time', 9999);
 $project_task_id = 2794;
 $post = $_REQUEST;
 $array_open_prev_month = Array();
-if(isset($post['rangedata']) && $post['rangedate']=='true') {
+//print_r($post["starttime"]);
+//print_r($post['rangedata']);
+if(isset($post['rangedate']) && $post['rangedate']=='true') {
 	$starttime = $post["starttime"];
 	$endtime = $post["endtime"];
+	//echo($starttime);
 }
 else {
 // Месяц берем предыдущий, т.к. отчет идет за предыдущий месяц
@@ -43,6 +46,10 @@ else {
 
 // Берем открытые и закрытые задачи
 $tasks_close = project_task_count($project_task_id,$starttime,$endtime,"close","yes");
+//echo($starttime);
+//print_r($tasks_close);
+//die("Вот так вот!");
+
 foreach($tasks_close as $item){
 	$array_tasks_close[] = $item["task_id"];
 }

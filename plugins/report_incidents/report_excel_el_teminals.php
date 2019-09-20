@@ -394,7 +394,7 @@ if($rangedate) {
 	echo json_encode('<p class="report_link">Отчет можно скачать по <a href="http://pm.citrt.net/plugins/report_incidents/autodetectexpiredtasks/'.$filename.'">этой</a> ссылке!</p>');
 }
 else {
-	$ToID = array('n.ryabinin@tatar.ru', 'A.H@tatar.ru', 'Elena.Lukina@tatar.ru', 'Liliya.Shaihova@tatar.ru', 'Timur.Zaripov@tatar.ru', 'L.G@tatar.ru', 'Aygul.Komarova@tatar.ru');
+	$ToID = array('ruslan.m@tatar.ru', 'A.H@tatar.ru', 'Elena.Lukina@tatar.ru', 'Liliya.Shaihova@tatar.ru', 'Timur.Zaripov@tatar.ru', 'L.G@tatar.ru', 'Aygul.Komarova@tatar.ru');
 //	$ToID = array('n.ryabinin@tatar.ru');
 	$FromID = 'terminal@tatar.ru';
 	$Subject = 'Ежемесячный отчет по задачам "Терминалы эл. очереди - обращения админов"';
